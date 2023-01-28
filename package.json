@@ -3,22 +3,29 @@
   "sideEffects": false,
   "scripts": {
     "build": "npm run build:css && remix build",
-    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "build:css": "npm run generate:css -- --minify",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
-    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+    "dev:css": "npm run generate:css -- --watch",
     "start": "remix-serve build",
     "typecheck": "tsc",
     "build:remix": "remix build",
     "dev:remix": "remix dev",
-    "generate:css": "npx tailwindcss -i ./styles/app.css -o ./app/app.css"
+    "generate:css": "npx tailwindcss -i ./styles/app.css -o ./app/styles/app.css"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.6",
     "@remix-run/node": "0.0.0-experimental-9b7f37c9a",
     "@remix-run/react": "0.0.0-experimental-9b7f37c9a",
     "@remix-run/serve": "0.0.0-experimental-9b7f37c9a",
     "isbot": "^3.6.5",
+    "material-react-table": "^1.5.12",
+    "node-fetch": "^3.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "storyblok-js-client": "^5.2.5"
   },
   "devDependencies": {
     "@remix-run/dev": "0.0.0-experimental-9b7f37c9a",
